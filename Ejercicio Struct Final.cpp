@@ -14,8 +14,8 @@ struct info{
 
 struct academico{
 	char numeroEmpleado[13];
-	struct info datos_profesor;
-}profesor;
+	struct info datos_profesor[10];
+}profesor[10];
 
 struct alumnado{
 	char numeroCuenta[13];
@@ -37,22 +37,22 @@ int main(void){
 	
 	scanf("%i", &op);
 	
-	for(int i=1;i<=incremento;i++);{
+	for(int i=0;i<incremento;i++){
 	if(op == 1){
 		getchar();
 		printf("Dame número empleado:");
 		fflush(stdin);
-		fgets(profesor.numeroEmpleado,13,stdin);
+		fgets(profesor[i].numeroEmpleado,13,stdin);
 		printf("Dame nombre: ");
 		fflush(stdin);
-		fgets(profesor.datos_profesor.nombre, 25, stdin);
+		fgets(profesor[i].datos_profesor[i].nombre, 25, stdin);
 		printf("Dame apellido paterno: ");
 		fflush(stdin);
-		fgets(profesor.datos_profesor.apPaterno, 25, stdin);
+		fgets(profesor[i].datos_profesor[i].apPaterno, 25, stdin);
 		printf("Dame apellido materno: ");
 		fflush(stdin);
-		fgets(profesor.datos_profesor.apMaterno, 25, stdin);
-		printf("\n\tID: %s \n\tNombre:%s \t       %s \t       %s", profesor.numeroEmpleado, profesor.datos_profesor.nombre, profesor.datos_profesor.apPaterno, profesor.datos_profesor.apMaterno);   
+		fgets(profesor[i].datos_profesor[i].apMaterno, 25, stdin);
+		//printf("\n\tID: %s \n\tNombre:%s \t       %s \t       %s", profesor.numeroEmpleado, profesor.datos_profesor.nombre, profesor.datos_profesor.apPaterno, profesor.datos_profesor.apMaterno);   
 	}else if(op == 2){
 		getchar();
 		printf("Dame número empleado: ");
@@ -73,8 +73,16 @@ int main(void){
 		printf("Dame una opción válida");
 }	
 
-printf("Si quieres continuar, escribe 1\, Si deseas terminar escribe 2:\n");
+printf("Si quieres continuar, escribe 1, Si deseas terminar escribe 2:\n");
 	scanf("%i", &variable);
-	printf("\n");
+
+
 }}
+	printf("\n--------------------------------------\n");
+	printf("Imprimiendo Profesores\n");
+	for (int i=0; i<incremento; i++){
+		printf("\n\tID: %s \tNombre: %s \tApPaterno:  %s \tApMaterno:%s", profesor[i].numeroEmpleado, profesor[i].datos_profesor[i].nombre, profesor[i].datos_profesor[i].apPaterno, profesor[i].datos_profesor[i].apMaterno);   	
+	}
+	printf("\n--------------------------------------\n");
+
 return 0;}
